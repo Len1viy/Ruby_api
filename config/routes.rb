@@ -1,15 +1,19 @@
-Rails.application.routes.draw do
 
+
+Rails.application.routes.draw do
   namespace :api do
+    resources :courses do
+      member do
+        post "subscribe", to: "courses#subscribe"
+      end
+    end
+
+    resources :session, only: [:index, :create]
+    delete 'session', to: 'session#destroy'
     resources :registration, only: [:index, :create]
   end
 
-  namespace :api do
-    resources :courses
-  end
-  namespace :api do
-    resources :session
-  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

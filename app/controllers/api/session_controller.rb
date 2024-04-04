@@ -1,13 +1,11 @@
 require 'jwt'
-
+require 'bcrypt'
 class Api::SessionController < ApplicationController
   before_action :set_user, only: %i[ show update destroy ]
   before_action :set_access_control_headers
 
   def index
-    @users = User.all
-
-    render json: @users
+    render json: @users, status: :ok
   end
 
   def show
@@ -15,18 +13,20 @@ class Api::SessionController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: user_params[:email], password: user_params[:password])
+    user = User.find_by(email: user_params[:email])
     if user
-      payload = {id: user.id, email: user_params[:email], password: user_params[:password]}
-      token = (JWT.encode payload, "SK", "HS256")[0..-2]
-      @token = user.tokens.create(token: token)
-      if @token.save
-        render json: { jwt: token }
+      if BCrypt::Password.new(user.password) == user_params[:password]
+        payload = { id: user.id, email: user_params[:email], password: user_params[:password], root: user.root, created_at: Time.now()}
+        token = (JWT.encode payload, "SK", "HS256")[0..-2]
+        user.validation_jwt = SecureRandom.hex(8)
+        user.save
+        render json: { jwt: token }, status: :ok
       else
-        render json: @token.errors, status: :unprocessable_entity
+        render json: {error: "Wrong email or password"}, status: :unauthorized
       end
     else
-      render json: @token.errors, status: :unauthorized
+      puts "Here"
+      render json: {error: "Wrong email or password"}, status: :unauthorized
     end
   end
 
@@ -40,30 +40,26 @@ class Api::SessionController < ApplicationController
 
   # DELETE /teachers/1
   def destroy
-    token = request.headers['Authorization'][7..-1]
-    if Token.find_by(token: token)
-      id = Token.find_by(token: token).user_id
-      if id
-        Token.where(user_id: id).destroy_all
-        render json: id, status: :ok
-      else
-        render json: id, status: :unprocessable_entity
-      end
+    decoded_token = JWT.decode(request.headers['Authorization'][7..-1], "SK", false, {algorithm: "HS256"})
+    @user = User.find_by(id: decoded_token[0]["id"], email: decoded_token[0]["email"])
+    if @user and @user.validation_jwt != nil
+      @user.validation_jwt = nil
+      @user.save
+      render json: @user, status: :ok
     else
-      render json: id, status: :unprocessable_entity
+      render json: @user, status: :unprocessable_entity
     end
-
-    # Token.save
-    # tokens_for_delete = Token.find_by(token)
-    # @token.destroy!
   end
 
-
-
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    if params[:id]
+      @user = User.find(params[:id])
+    else
+      @user = User.all
+    end
   end
 
   # Only allow a list of trusted parameters through.

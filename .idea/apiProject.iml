@@ -28,6 +28,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="action_policy (v0.6.8, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actioncable (v7.1.3.2, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v7.1.3.2, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v7.1.3.2, ruby-3.2.3-p157) [gem]" level="application" />
@@ -40,6 +41,7 @@
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.1.3.2, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.1.3.2, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="base64 (v0.2.0, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.20, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bigdecimal (v3.1.7, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.18.3, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, ruby-3.2.3-p157) [gem]" level="application" />
@@ -47,15 +49,25 @@
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.2.3, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="connection_pool (v2.4.1, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v2.0.2, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="database_cleaner-active_record (v2.1.0, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="database_cleaner-core (v2.0.1, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="date (v3.3.4, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="debug (v1.9.2, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.5.1, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="drb (v2.2.1, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.12.0, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="factory_bot (v6.4.6, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="factory_bot_rails (v6.4.3, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.4, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.7.2, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.12.0, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jwt (v2.8.1, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari (v1.2.2, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari-actionview (v1.2.2, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari-activerecord (v1.2.2, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari-core (v1.2.2, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.22.0, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.4, ruby-3.2.3-p157) [gem]" level="application" />
@@ -83,6 +95,12 @@
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.2.0, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v6.6.3.1, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="reline (v0.5.0, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec-core (v3.13.0, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec-expectations (v3.13.0, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec-mocks (v3.13.0, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec-rails (v6.1.2, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec-support (v3.13.1, ruby-3.2.3-p157) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-next-core (v1.0.2, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.7.3, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.0, ruby-3.2.3-p157) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.1, ruby-3.2.3-p157) [gem]" level="application" />
@@ -101,6 +119,8 @@
   <component name="RailsGeneratorsCache">
     <option name="generators">
       <list>
+        <option value="action_policy:install" />
+        <option value="action_policy:policy" />
         <option value="active_record:application_record" />
         <option value="active_record:migration" />
         <option value="active_record:model" />
@@ -109,14 +129,33 @@
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="factory_bot:model" />
         <option value="generator" />
         <option value="integration_test" />
         <option value="job" />
+        <option value="kaminari:config" />
+        <option value="kaminari:views" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
         <option value="model" />
         <option value="resource" />
+        <option value="rspec:channel" />
+        <option value="rspec:controller" />
+        <option value="rspec:feature" />
+        <option value="rspec:generator" />
+        <option value="rspec:helper" />
+        <option value="rspec:install" />
+        <option value="rspec:integration" />
+        <option value="rspec:job" />
+        <option value="rspec:mailbox" />
+        <option value="rspec:mailer" />
+        <option value="rspec:model" />
+        <option value="rspec:policy" />
+        <option value="rspec:request" />
+        <option value="rspec:scaffold" />
+        <option value="rspec:system" />
+        <option value="rspec:view" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
         <option value="system_test" />
@@ -132,12 +171,15 @@
         <option value="test_unit:mailer" />
         <option value="test_unit:model" />
         <option value="test_unit:plugin" />
+        <option value="test_unit:policy" />
         <option value="test_unit:scaffold" />
         <option value="test_unit:system" />
       </list>
     </option>
     <option name="myGenerators">
       <list>
+        <option value="action_policy:install" />
+        <option value="action_policy:policy" />
         <option value="active_record:application_record" />
         <option value="active_record:migration" />
         <option value="active_record:model" />
@@ -146,14 +188,33 @@
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="factory_bot:model" />
         <option value="generator" />
         <option value="integration_test" />
         <option value="job" />
+        <option value="kaminari:config" />
+        <option value="kaminari:views" />
         <option value="mailbox" />
         <option value="mailer" />
         <option value="migration" />
         <option value="model" />
         <option value="resource" />
+        <option value="rspec:channel" />
+        <option value="rspec:controller" />
+        <option value="rspec:feature" />
+        <option value="rspec:generator" />
+        <option value="rspec:helper" />
+        <option value="rspec:install" />
+        <option value="rspec:integration" />
+        <option value="rspec:job" />
+        <option value="rspec:mailbox" />
+        <option value="rspec:mailer" />
+        <option value="rspec:model" />
+        <option value="rspec:policy" />
+        <option value="rspec:request" />
+        <option value="rspec:scaffold" />
+        <option value="rspec:system" />
+        <option value="rspec:view" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
         <option value="system_test" />
@@ -169,6 +230,7 @@
         <option value="test_unit:mailer" />
         <option value="test_unit:model" />
         <option value="test_unit:plugin" />
+        <option value="test_unit:policy" />
         <option value="test_unit:scaffold" />
         <option value="test_unit:system" />
       </list>
@@ -263,6 +325,7 @@
       <value>file://$MODULE_DIR$/../apiProject\public/stylesheets</value>
     </entry>
     <entry key="test/mailers/previews">
+      <value>file://$MODULE_DIR$/spec/mailers/previews</value>
       <value>file://$MODULE_DIR$/test/mailers/previews</value>
       <value>file://$MODULE_DIR$/../apiProject\test/mailers/previews</value>
     </entry>
@@ -438,6 +501,14 @@
           <RakeTaskImpl id="log">
             <subtasks>
               <RakeTaskImpl description="Truncate all/specified *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)" fullCommand="log:clear" id="clear" />
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl description="Run all specs in spec directory (excluding plugin specs)" fullCommand="spec" id="spec" />
+          <RakeTaskImpl id="spec">
+            <subtasks>
+              <RakeTaskImpl description="Run the code examples in spec/controllers" fullCommand="spec:controllers" id="controllers" />
+              <RakeTaskImpl description="" fullCommand="spec:prepare" id="prepare" />
+              <RakeTaskImpl description="" fullCommand="spec:statsetup" id="statsetup" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl description="Report code statistics (KLOCs, etc) from the application or engine" fullCommand="stats" id="stats" />

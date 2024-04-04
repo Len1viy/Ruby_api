@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action_policy (0.6.8)
+      ruby-next-core (>= 1.0)
     actioncable (7.1.3.2)
       actionpack (= 7.1.3.2)
       activesupport (= 7.1.3.2)
@@ -76,6 +78,7 @@ GEM
       mutex_m
       tzinfo (~> 2.0)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bigdecimal (3.1.7)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
@@ -83,12 +86,24 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
+    database_cleaner (2.0.2)
+      database_cleaner-active_record (>= 2, < 3)
+    database_cleaner-active_record (2.1.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    diff-lcs (1.5.1)
     drb (2.2.1)
     erubi (1.12.0)
+    factory_bot (6.4.6)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.4)
@@ -99,6 +114,18 @@ GEM
       reline (>= 0.4.2)
     jwt (2.8.1)
       base64
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -173,6 +200,24 @@ GEM
       psych (>= 4.0.0)
     reline (0.5.0)
       io-console (~> 0.5)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-rails (6.1.2)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.13)
+      rspec-expectations (~> 3.13)
+      rspec-mocks (~> 3.13)
+      rspec-support (~> 3.13)
+    rspec-support (3.13.1)
+    ruby-next-core (1.0.2)
     sqlite3 (1.7.3-x64-mingw-ucrt)
     sqlite3 (1.7.3-x86_64-linux)
     stringio (3.1.0)
@@ -193,11 +238,17 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  action_policy
+  bcrypt
   bootsnap
+  database_cleaner
   debug
+  factory_bot_rails
   jwt
+  kaminari
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)
+  rspec-rails
   sqlite3 (~> 1.4)
   tzinfo-data
 
