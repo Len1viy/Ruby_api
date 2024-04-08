@@ -63,7 +63,7 @@ RSpec.describe Api::CoursesController, type: :request do
   it "GET api/courses?tutor_id=1" do
     ans_for_compare = [{"creator"=>"Учитель1", "description"=>"Nice subject", "title"=>"Math"}]
 
-    get "/api/courses?tutor_id=1"
+    get "/api/courses?tutor_id=1", headers: { Authorization: "Bearer #{token1}", "Content-Type": "application/json" }
     expect(response).to have_http_status(:ok)
     expect(JSON.parse(response.body)).to eq ans_for_compare
   end
@@ -86,13 +86,13 @@ RSpec.describe Api::CoursesController, type: :request do
     expect(Course.count).to eq 1
     ans_for_compare = [{"creator"=>"Учитель1", "description"=>"Nice subject", "title"=>"Math"}]
 
-    get "/api/courses"
+    get "/api/courses", headers: { Authorization: "Bearer #{token2}", "Content-Type": "application/json" }
     expect(response).to have_http_status(:ok)
     expect(JSON.parse(response.body)).to eq ans_for_compare
   end
 
   it "GET api/courses?student_id={id студента}" do
-    get "/api/courses?student_id=2"
+    get "/api/courses?student_id=2", headers: { Authorization: "Bearer #{token2}", "Content-Type": "application/json" }
     ans_for_compare = []
     expect(response).to have_http_status(:ok)
     expect(JSON.parse(response.body)).to eq ans_for_compare
@@ -101,7 +101,7 @@ RSpec.describe Api::CoursesController, type: :request do
   it "POST api/cources/4/subscribe" do
     post "/api/cources/4/subscribe",
          headers: { Authorization: "Bearer #{token2}", "Content-Type": "application/json" }
-    get "/api/courses?student_id=2"
+    get "/api/courses?student_id=2", headers: { Authorization: "Bearer #{token2}", "Content-Type": "application/json" }
     ans_for_compare = []
     expect(response).to have_http_status(:ok)
     expect(JSON.parse(response.body)).to eq ans_for_compare
@@ -115,13 +115,13 @@ RSpec.describe Api::CoursesController, type: :request do
     expect(Course.count).to eq 1
     ans_for_compare = [{"creator"=>"Учитель1", "description"=>"Nice subject", "title"=>"Math"}]
 
-    get "/api/courses"
+    get "/api/courses", headers: { Authorization: "Bearer #{token3}", "Content-Type": "application/json" }
     expect(response).to have_http_status(:ok)
     expect(JSON.parse(response.body)).to eq ans_for_compare
   end
 
   it "GET api/courses?student_id={id студента}" do
-    get "/api/courses?student_id=3"
+    get "/api/courses?student_id=3", headers: { Authorization: "Bearer #{token3}", "Content-Type": "application/json" }
     ans_for_compare = []
     expect(response).to have_http_status(:ok)
     expect(JSON.parse(response.body)).to eq ans_for_compare
@@ -130,7 +130,7 @@ RSpec.describe Api::CoursesController, type: :request do
   it "POST api/cources/4/subscribe" do
     post "/api/cources/4/subscribe",
          headers: { Authorization: "Bearer #{token3}", "Content-Type": "application/json" }
-    get "/api/courses?student_id=3"
+    get "/api/courses?student_id=3", headers: { Authorization: "Bearer #{token3}", "Content-Type": "application/json" }
     ans_for_compare = []
     expect(response).to have_http_status(:ok)
     expect(JSON.parse(response.body)).to eq ans_for_compare

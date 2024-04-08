@@ -3,7 +3,7 @@ require 'bcrypt'
 class Api::SessionController < ApplicationController
   before_action :set_user, only: %i[ show update destroy ]
   before_action :set_access_control_headers
-
+  before_action :create_service
   def index
     render json: @users, status: :ok
   end
@@ -13,21 +13,9 @@ class Api::SessionController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: user_params[:email])
-    if user
-      if BCrypt::Password.new(user.password) == user_params[:password]
-        payload = { id: user.id, email: user_params[:email], password: user_params[:password], root: user.root, created_at: Time.now()}
-        token = (JWT.encode payload, "SK", "HS256")[0..-2]
-        user.validation_jwt = SecureRandom.hex(8)
-        user.save
-        render json: { jwt: token }, status: :ok
-      else
-        render json: {error: "Wrong email or password"}, status: :unauthorized
-      end
-    else
-      puts "Here"
-      render json: {error: "Wrong email or password"}, status: :unauthorized
-    end
+    ans =  @service.find_user(user_params)
+    render json: {jwt: ans[:token]}, status: ans[:status] if ans[:status].eql? :ok
+    render json: {error: ans[:error]}, status: ans[:status] unless ans[:status].eql? :ok
   end
 
   def update
@@ -40,18 +28,20 @@ class Api::SessionController < ApplicationController
 
   # DELETE /teachers/1
   def destroy
-    decoded_token = JWT.decode(request.headers['Authorization'][7..-1], "SK", false, {algorithm: "HS256"})
-    @user = User.find_by(id: decoded_token[0]["id"], email: decoded_token[0]["email"])
-    if @user and @user.validation_jwt != nil
-      @user.validation_jwt = nil
-      @user.save
-      render json: @user, status: :ok
-    else
-      render json: @user, status: :unprocessable_entity
-    end
+    ans = @service.unauth_user(request)
+    render json: ans[0], status: ans[1]
   end
 
+
+
+
   private
+
+
+  def create_service
+    @service = SessionService.new
+  end
+
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
